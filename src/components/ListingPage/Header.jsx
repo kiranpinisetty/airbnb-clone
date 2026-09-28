@@ -1,3 +1,4 @@
+import searchbarHouseImg from '../../assets/searchbar-house.png';
 import './Header.css';
 
 export default function Header() {
@@ -32,20 +33,12 @@ export default function Header() {
               className="search-segment search-segment-first"
               aria-label="Search destination: Anywhere"
             >
-              <svg
+              <img
+                src={searchbarHouseImg}
+                alt=""
                 className="search-house-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
                 aria-hidden="true"
-                focusable="false"
-              >
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
+              />
               <span>Anywhere</span>
             </button>
 

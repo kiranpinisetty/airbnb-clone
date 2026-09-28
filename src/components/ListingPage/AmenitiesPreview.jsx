@@ -25,7 +25,7 @@ const AMENITIES_LIST = [
   { icon: BellOff, label: 'Smoke alarm', struckThrough: true },
 ];
 
-export default function AmenitiesPreview() {
+export default function AmenitiesPreview({ countLabel = 50, onOpenModal }) {
   return (
     <section id="amenities" className="amenities-preview-section" aria-labelledby="amenities-heading">
       <h2 id="amenities-heading" className="amenities-preview-heading">
@@ -58,9 +58,10 @@ export default function AmenitiesPreview() {
       <button
         type="button"
         className="amenities-show-all-btn"
-        aria-label="Show all 50 amenities"
+        onClick={onOpenModal}
+        aria-label={`Show all ${countLabel} amenities`}
       >
-        Show all 50 amenities
+        {`Show all ${countLabel} amenities`}
       </button>
     </section>
   );

@@ -23,6 +23,7 @@ export default function Summary({ propertyType, capacity }) {
 
   return (
     <section className="property-summary" aria-label="Property summary">
+      <div id="summary-sentinel" className="summary-sentinel" aria-hidden="true" />
       <h2 className="summary-heading">{propertyType}</h2>
       {detailsString && <p className="summary-details">{detailsString}</p>}
     </section>

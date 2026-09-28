@@ -45,6 +45,27 @@
   position: relative;
 }
 
+/* Full 1120px Sections Below Two-Column Grid */
+.listing-full-section {
+  width: 100%;
+  padding: 48px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.listing-location-group {
+  width: 100%;
+}
+
+.listing-location-sub-section {
+  width: 100%;
+  padding: 48px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.listing-location-sub-section:last-child {
+  border-bottom: none;
+}
+
 .section-anchor {
   position: relative;
   top: -66px;

@@ -1,0 +1,78 @@
+:root {
+  --things-heading-size: 22px;
+  --things-heading-weight: 600;
+  --things-col-gap: 32px;
+  --things-title-size: 16px;
+  --things-title-weight: 600;
+  --things-body-size: 14px;
+  --things-body-line-height: 20px;
+  --things-body-gap: 8px;
+}
+
+.things-to-know-section {
+  width: 100%;
+}
+
+.things-to-know-heading {
+  font-size: var(--things-heading-size);
+  font-weight: var(--things-heading-weight);
+  color: #222222;
+  margin: 0 0 24px;
+}
+
+.things-to-know-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: var(--things-col-gap);
+  align-items: flex-start;
+}
+
+.things-to-know-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.things-to-know-icon {
+  width: 24px;
+  height: 24px;
+  color: #222222;
+}
+
+.things-to-know-col-title {
+  font-size: var(--things-title-size);
+  font-weight: var(--things-title-weight);
+  color: #222222;
+  margin: 12px 0 16px;
+}
+
+.things-to-know-lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--things-body-gap);
+  margin-bottom: 16px;
+}
+
+.things-to-know-line {
+  font-size: var(--things-body-size);
+  line-height: var(--things-body-line-height);
+  color: #222222;
+  margin: 0;
+}
+
+.things-to-know-learn-more-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: flex-start;
+  border-radius: 2px;
+}
+
+.things-to-know-learn-more-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}

@@ -1,14 +1,15 @@
-import hostAvatar from '../../assets/hero.png';
+import { getAsset } from '../../lib/assets';
 import './HostRow.css';
 
 export default function HostRow({ host }) {
   const hostName = host ? host.name : 'Mirashya Homes';
   const years = host ? host.yearsHosting : 2;
+  const avatarUrl = getAsset(host?.logo || 'avatars/host.jpeg');
 
   return (
     <div className="host-row" aria-label={`Host details for ${hostName}`}>
       <img
-        src={hostAvatar}
+        src={avatarUrl}
         alt={`Avatar of ${hostName}`}
         className="host-avatar"
       />

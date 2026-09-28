@@ -1,5 +1,13 @@
 .property-summary {
   padding: 0;
+  position: relative;
+}
+
+.summary-sentinel {
+  height: 1px;
+  margin-bottom: -1px;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .summary-heading {

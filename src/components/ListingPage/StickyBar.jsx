@@ -9,73 +9,105 @@ const SECTIONS = [
   { id: 'location', label: 'Location' },
 ];
 
-export default function StickyBar({ price, rating }) {
+export default function StickyBar({
+  price,
+  rating,
+  nights: propNights,
+  totalPrice: propTotalPrice,
+}) {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('photos');
 
-  // Use IntersectionObserver to toggle visibility when hero grid top leaves/enters viewport
+  // 1. Observe summary sentinel to toggle StickyBar visibility (no scroll-event setState)
   useEffect(() => {
-    const heroEl = document.getElementById('photos');
-    if (!heroEl) return;
+    const sentinel = document.getElementById('summary-sentinel');
+    if (!sentinel) return;
 
-    // Observe when the top of the hero grid leaves the viewport
-    // rootMargin: '-1px 0px 0px 0px' so when the top crosses the top of viewport, observer fires
     const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        // If boundingClientRect.top < 0 and it is intersecting or past the top
-        setIsVisible(entry.boundingClientRect.top < 0);
+      ([entry]) => {
+        // Sticky bar appears once the summary heading sentinel has scrolled above top of viewport
+        const isPastSentinel = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        setIsVisible(isPastSentinel);
       },
       {
         root: null,
-        threshold: [0],
-        rootMargin: '-1px 0px 0px 0px',
+        threshold: 0,
       }
     );
 
-    observer.observe(heroEl);
+    observer.observe(sentinel);
 
     return () => observer.disconnect();
   }, []);
 
-  // Use requestAnimationFrame-throttled scroll handler for scroll-spy section tracking
+  // 2. Observe sections with IntersectionObserver for scroll-spy (no per-scroll setState)
   useEffect(() => {
-    let rafId = null;
+    const sectionIds = ['photos', 'amenities', 'reviews', 'location'];
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
 
-    const updateActiveSection = () => {
-      const barHeight = 66;
-      let current = 'photos';
+    if (elements.length === 0) return;
 
-      for (const section of SECTIONS) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= barHeight + 60) {
-            current = section.id;
+    const intersectingMap = new Map();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersectingMap.set(entry.target.id, entry);
+          } else {
+            intersectingMap.delete(entry.target.id);
+          }
+        });
+
+        // Determine active section:
+        // Pick the lowest section in document order whose top has reached the bar zone (<= 90px)
+        let active = null;
+        for (let i = sectionIds.length - 1; i >= 0; i--) {
+          const id = sectionIds[i];
+          const entry = intersectingMap.get(id);
+          if (entry && entry.boundingClientRect.top <= 90) {
+            active = id;
+            break;
           }
         }
+
+        // Fallback: if at the top of the page before 90px boundary
+        if (!active && intersectingMap.size > 0) {
+          for (const id of sectionIds) {
+            if (intersectingMap.has(id)) {
+              active = id;
+              break;
+            }
+          }
+        }
+
+        if (active) {
+          setActiveSection(active);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-80px 0px -60% 0px',
+        threshold: [0, 0.1],
       }
+    );
 
-      setActiveSection((prev) => (prev !== current ? current : prev));
-      rafId = null;
-    };
+    elements.forEach((el) => observer.observe(el));
 
-    const handleScroll = () => {
-      if (rafId === null) {
-        rafId = requestAnimationFrame(updateActiveSection);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    updateActiveSection();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
+
+  const nights = propNights !== undefined ? propNights : (price ? price.nights : 5);
+  const totalPrice = propTotalPrice !== undefined ? propTotalPrice : (price ? price.amount : 28499);
+  const hasDates = nights > 0;
+  const formattedAmount = hasDates
+    ? `₹${totalPrice.toLocaleString('en-IN')}`
+    : 'Add dates for prices';
+  const nightsText = hasDates ? ` for ${nights} ${nights === 1 ? 'night' : 'nights'}` : '';
+  const ratingScore = rating ? rating.score : 4.95;
+  const reviewCount = rating ? rating.reviewCount : 19;
 
   const handleLinkClick = (e, sectionId) => {
     e.preventDefault();
@@ -92,16 +124,12 @@ export default function StickyBar({ price, rating }) {
     });
   };
 
-  const formattedAmount = price ? `${price.currency}${price.amount.toLocaleString('en-IN')}` : '₹28,499';
-  const nights = price ? price.nights : 5;
-  const ratingScore = rating ? rating.score : 4.95;
-  const reviewCount = rating ? rating.reviewCount : 19;
-
   return (
     <aside
       className={`sticky-bar ${isVisible ? 'sticky-bar-visible' : 'sticky-bar-hidden'}`}
       aria-label="Section navigation and quick booking"
-      aria-hidden={!isVisible ? 'true' : undefined}
+      aria-hidden={!isVisible}
+      inert={!isVisible ? '' : undefined}
     >
       <div className="sticky-bar-inner">
         <nav className="sticky-bar-nav" aria-label="Page sections">
@@ -114,7 +142,6 @@ export default function StickyBar({ price, rating }) {
                 className={`sticky-bar-link ${isActive ? 'sticky-bar-link-active' : ''}`}
                 onClick={(e) => handleLinkClick(e, sec.id)}
                 aria-current={isActive ? 'true' : undefined}
-                tabIndex={isVisible ? 0 : -1}
               >
                 {sec.label}
               </a>
@@ -126,7 +153,9 @@ export default function StickyBar({ price, rating }) {
           <div className="sticky-bar-price-block">
             <div className="sticky-bar-price-line">
               <span className="sticky-bar-amount">{formattedAmount}</span>
-              <span className="sticky-bar-nights">{` for ${nights} nights`}</span>
+              {nightsText && (
+                <span className="sticky-bar-nights">{nightsText}</span>
+              )}
             </div>
             <div className="sticky-bar-rating-line">
               <Star size={12} fill="#222222" color="#222222" aria-hidden="true" />
@@ -139,7 +168,6 @@ export default function StickyBar({ price, rating }) {
             type="button"
             className="sticky-bar-reserve-btn"
             aria-label="Reserve listing"
-            tabIndex={isVisible ? 0 : -1}
           >
             Reserve
           </button>

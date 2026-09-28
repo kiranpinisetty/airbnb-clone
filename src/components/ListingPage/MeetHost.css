@@ -1,0 +1,292 @@
+:root {
+  --host-heading-size: 22px;
+  --host-heading-weight: 600;
+  --host-card-width: 339px;
+  --host-card-height: 260px;
+  --host-card-radius: 24px;
+  --host-card-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --host-col-gap: 48px;
+  --host-avatar-size: 88px;
+  --host-badge-size: 28px;
+  --host-name-size: 32px;
+  --host-stat-num-size: 22px;
+  --host-cohost-avatar-size: 34px;
+  --host-msg-btn-width: 144px;
+  --host-msg-btn-height: 47px;
+}
+
+.meet-host-section {
+  width: 100%;
+}
+
+.meet-host-heading {
+  font-size: var(--host-heading-size);
+  font-weight: var(--host-heading-weight);
+  color: #222222;
+  margin: 0 0 24px;
+}
+
+.meet-host-columns {
+  display: flex;
+  gap: var(--host-col-gap);
+  align-items: flex-start;
+}
+
+/* Left Column */
+.meet-host-left-col {
+  width: var(--host-card-width);
+  flex-shrink: 0;
+}
+
+.meet-host-badge-card {
+  width: var(--host-card-width);
+  min-height: var(--host-card-height);
+  border-radius: var(--host-card-radius);
+  box-shadow: var(--host-card-shadow);
+  background-color: #ffffff;
+  display: flex;
+  padding: 24px 20px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.meet-host-card-left {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.meet-host-avatar-wrapper {
+  position: relative;
+  width: var(--host-avatar-size);
+  height: var(--host-avatar-size);
+  margin-bottom: 12px;
+}
+
+.meet-host-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.meet-host-check-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: var(--host-badge-size);
+  height: var(--host-badge-size);
+  border-radius: 50%;
+  background-color: #e00b41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.meet-host-name {
+  font-size: var(--host-name-size);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #222222;
+  margin: 0;
+  word-break: break-word;
+}
+
+.meet-host-label {
+  font-size: 14px;
+  color: #717171;
+  margin-top: 6px;
+}
+
+.meet-host-card-divider {
+  width: 1px;
+  background-color: #ebebeb;
+  margin: 0 16px;
+  align-self: stretch;
+}
+
+.meet-host-card-right {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.meet-host-stat-block {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.meet-host-stat-block:not(:last-child) {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.meet-host-stat-value {
+  font-size: var(--host-stat-num-size);
+  font-weight: 600;
+  color: #222222;
+  line-height: 1.2;
+}
+
+.meet-host-stat-label {
+  font-size: 12px;
+  color: #222222;
+  margin-top: 2px;
+}
+
+/* Info List below card */
+.meet-host-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.meet-host-info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.meet-host-info-icon {
+  width: 24px;
+  height: 24px;
+  color: #222222;
+  flex-shrink: 0;
+}
+
+.meet-host-info-text {
+  font-size: 16px;
+  color: #222222;
+}
+
+/* Right Column */
+.meet-host-right-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.meet-host-subheading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222222;
+  margin: 0 0 20px;
+}
+
+/* Co-hosts Grid */
+.meet-host-cohosts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 16px;
+  margin-bottom: 36px;
+}
+
+.meet-host-cohost-item {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
+
+.meet-host-cohost-avatar-box {
+  width: var(--host-cohost-avatar-size);
+  height: var(--host-cohost-avatar-size);
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.meet-host-cohost-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meet-host-cohost-avatar-initial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.meet-host-cohost-name {
+  font-size: 16px;
+  color: #222222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Host details lines */
+.meet-host-details-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.meet-host-detail-line {
+  font-size: 16px;
+  line-height: 24px;
+  color: #222222;
+  margin: 0;
+}
+
+/* Message host button */
+.meet-host-message-btn {
+  width: var(--host-msg-btn-width);
+  height: var(--host-msg-btn-height);
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.meet-host-message-btn:hover {
+  background-color: #e8e8e8;
+}
+
+.meet-host-message-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+/* Security Protection Notice */
+.meet-host-security-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.meet-host-security-icon {
+  width: 20px;
+  height: 20px;
+  color: #e00b41;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.meet-host-security-text {
+  font-size: 14px;
+  line-height: 20px;
+  color: #6a6a6a;
+  margin: 0;
+}

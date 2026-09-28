@@ -1,11 +1,44 @@
 import { Tag, ChevronDown, Flag } from 'lucide-react';
 import './BookingSidebar.css';
 
-export default function BookingSidebar({ price }) {
-  const formattedPrice = price
+function formatSlashDate(d) {
+  if (!d) return 'Add date';
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  const y = d.getFullYear();
+  return `${m}/${day}/${y}`;
+}
+
+export default function BookingSidebar({
+  price,
+  checkIn,
+  checkOut,
+  nights = 5,
+  totalPrice,
+}) {
+  const hasDates = Boolean(checkIn && checkOut && nights > 0);
+  const formattedPrice = hasDates
+    ? `₹${totalPrice.toLocaleString('en-IN')}`
+    : price && price.amount
     ? `${price.currency}${price.amount.toLocaleString('en-IN')}`
-    : '₹28,499';
-  const nights = price ? price.nights : 5;
+    : 'Add dates for prices';
+
+  // Cancellation date calculation (day before check-in)
+  let cancelText = 'Free cancellation available';
+  if (checkIn) {
+    const cancelDate = new Date(checkIn);
+    cancelDate.setDate(cancelDate.getDate() - 1);
+    const cancelDay = cancelDate.getDate();
+    const cancelMonth = cancelDate.toLocaleString('en-US', { month: 'long' });
+    cancelText = (
+      <span>
+        Free cancellation before <strong>{`${cancelDay} ${cancelMonth}`}</strong>
+      </span>
+    );
+  }
+
+  const checkInText = formatSlashDate(checkIn);
+  const checkOutText = formatSlashDate(checkOut);
 
   return (
     <aside className="booking-sidebar" aria-label="Booking and reservation">
@@ -38,7 +71,11 @@ export default function BookingSidebar({ price }) {
       <div className="booking-card">
         <div className="booking-card-price-header">
           <span className="booking-card-price-amount">{formattedPrice}</span>
-          <span className="booking-card-price-nights">{` for ${nights} nights`}</span>
+          {hasDates && (
+            <span className="booking-card-price-nights">{` for ${nights} ${
+              nights === 1 ? 'night' : 'nights'
+            }`}</span>
+          )}
         </div>
 
         {/* Date and Guests Field Box */}
@@ -47,19 +84,19 @@ export default function BookingSidebar({ price }) {
             <button
               type="button"
               className="booking-field-btn booking-checkin-btn"
-              aria-label="Check-in date: 10/18/2026"
+              aria-label={`Check-in date: ${checkInText}`}
             >
               <span className="booking-field-label">CHECK-IN</span>
-              <span className="booking-field-value">10/18/2026</span>
+              <span className="booking-field-value">{checkInText}</span>
             </button>
 
             <button
               type="button"
               className="booking-field-btn booking-checkout-btn"
-              aria-label="Checkout date: 10/23/2026"
+              aria-label={`Checkout date: ${checkOutText}`}
             >
               <span className="booking-field-label">CHECKOUT</span>
-              <span className="booking-field-value">10/23/2026</span>
+              <span className="booking-field-value">{checkOutText}</span>
             </button>
           </div>
 
@@ -78,9 +115,7 @@ export default function BookingSidebar({ price }) {
 
         {/* Free cancellation pill */}
         <div className="booking-cancellation-pill">
-          <span>
-            Free cancellation before <strong>17 October</strong>
-          </span>
+          {typeof cancelText === 'string' ? <span>{cancelText}</span> : cancelText}
         </div>
 
         {/* Reserve CTA */}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from './Header';
 import TitleRow from './TitleRow';
 import HeroGrid from './HeroGrid';
@@ -9,17 +10,37 @@ import Highlights from './Highlights';
 import Description from './Description';
 import Sleeping from './Sleeping';
 import AmenitiesPreview from './AmenitiesPreview';
+import AmenitiesModal from './AmenitiesModal';
+import Calendar from './Calendar';
 import BookingSidebar from './BookingSidebar';
+import ReviewsSection from './ReviewsSection';
+import WhereYoullBe from './WhereYoullBe';
+import MeetHost from './MeetHost';
+import ThingsToKnow from './ThingsToKnow';
+import MoreStays from './MoreStays';
 import './ListingPage.css';
 
 export default function ListingPage({ listing, onOpenPhotoTour }) {
+  // Default selection: Oct 18, 2026 to Oct 23, 2026 (5 nights)
+  const [checkIn, setCheckIn] = useState(() => new Date(2026, 9, 18));
+  const [checkOut, setCheckOut] = useState(() => new Date(2026, 9, 23));
+  const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false);
+
   if (!listing) return null;
+
+  const nights =
+    checkIn && checkOut
+      ? Math.max(0, Math.round((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24)))
+      : 0;
+  const totalPrice = nights > 0 ? Math.round(5699.8 * nights) : 0;
 
   return (
     <div className="listing-page">
       <StickyBar
         price={listing.price}
         rating={listing.rating}
+        nights={nights}
+        totalPrice={totalPrice}
       />
       <Header />
       <main className="listing-main">
@@ -65,19 +86,77 @@ export default function ListingPage({ listing, onOpenPhotoTour }) {
             </div>
 
             <div className="listing-section">
-              <AmenitiesPreview />
+              <AmenitiesPreview
+                countLabel={listing.amenitiesCountLabel}
+                onOpenModal={() => setIsAmenitiesModalOpen(true)}
+              />
             </div>
 
-            {/* Anchors for scroll-spy sections */}
-            <div id="reviews" className="section-anchor" />
-            <div id="location" className="section-anchor" />
+            <div className="listing-section">
+              <Calendar
+                checkIn={checkIn}
+                checkOut={checkOut}
+                onDatesChange={(newIn, newOut) => {
+                  setCheckIn(newIn);
+                  setCheckOut(newOut);
+                }}
+              />
+            </div>
           </div>
 
           <div className="listing-sidebar-wrapper">
-            <BookingSidebar price={listing.price} />
+            <BookingSidebar
+              price={listing.price}
+              checkIn={checkIn}
+              checkOut={checkOut}
+              nights={nights}
+              totalPrice={totalPrice}
+            />
+          </div>
+        </div>
+
+        {/* Full 1120px Sections Below Two-Column Grid */}
+        <div id="reviews" className="listing-full-section">
+          <ReviewsSection
+            reviews={listing.reviews}
+            rating={listing.rating}
+          />
+        </div>
+
+        <div id="location" className="listing-location-group">
+          <div className="listing-location-sub-section">
+            <WhereYoullBe
+              neighbourhood={listing.neighbourhood}
+              location={listing.location}
+            />
+          </div>
+
+          <div className="listing-location-sub-section">
+            <MeetHost
+              host={listing.host}
+              coHosts={listing.coHosts}
+            />
+          </div>
+
+          <div className="listing-location-sub-section">
+            <ThingsToKnow
+              thingsToKnow={listing.thingsToKnow}
+            />
+          </div>
+
+          <div className="listing-location-sub-section">
+            <MoreStays
+              similarStays={listing.similarStays}
+            />
           </div>
         </div>
       </main>
+
+      <AmenitiesModal
+        isOpen={isAmenitiesModalOpen}
+        onClose={() => setIsAmenitiesModalOpen(false)}
+        amenitiesModal={listing.amenitiesModal}
+      />
     </div>
   );
 }
