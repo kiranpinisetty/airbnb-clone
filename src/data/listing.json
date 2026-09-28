@@ -141,6 +141,7 @@
     "Smoke alarm not reported",
     "Exterior security cameras on property"
   ],
+  "heroPhotoIds": ["1002", "1004", "1005", "1006", "1002"],
   "photos": [
     {
       "id": "1001",
@@ -151,7 +152,7 @@
     {
       "id": "1002",
       "category": "Living room 2",
-      "url": "PLACEHOLDER",
+      "url": "src/assets/30ad93b2-293f-494d-b645-626303c6cb93.jpeg",
       "tags": ["Coffee table", "Seating area", "Natural light"]
     },
     {
@@ -163,19 +164,19 @@
     {
       "id": "1004",
       "category": "Bedroom",
-      "url": "PLACEHOLDER",
+      "url": "src/assets/a74e3c0b-3188-4442-9146-1cd4d6ea45df.jpeg",
       "tags": ["King bed", "Bed linen", "Room-darkening blinds", "Air conditioning"]
     },
     {
       "id": "1005",
       "category": "Full bathroom",
-      "url": "PLACEHOLDER",
+      "url": "src/assets/c904e1ab-a39d-4ef0-bdea-8c0bd16b9e3d.jpeg",
       "tags": ["Hot tub", "Shower", "Hot water", "Hairdryer"]
     },
     {
       "id": "1006",
       "category": "Gym",
-      "url": "PLACEHOLDER",
+      "url": "src/assets/4fede77d-7a71-446f-89e3-263af937f3fa.jpeg",
       "tags": ["Fitness equipment", "Weights", "Treadmill"]
     },
     {

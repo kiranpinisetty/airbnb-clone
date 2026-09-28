@@ -1,0 +1,140 @@
+.hero-grid-container {
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  aspect-ratio: 2.27 / 1;
+}
+
+.hero-grid-subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  height: 100%;
+}
+
+.hero-grid-item {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #f0efe9;
+  border: none;
+}
+
+/* Outer corner border-radii */
+.hero-grid-item-main {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* 2x2 grid positions:
+   index 0 (top-left of subgrid) -> inner corner square
+   index 1 (top-right of subgrid) -> outer top-right rounded 12px
+   index 2 (bottom-left of subgrid) -> inner corner square
+   index 3 (bottom-right of subgrid) -> outer bottom-right rounded 12px
+*/
+.hero-grid-item-side-1 {
+  border-top-right-radius: 12px;
+}
+
+.hero-grid-item-side-3 {
+  border-bottom-right-radius: 12px;
+}
+
+.hero-grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover dark overlay */
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.hero-grid-item:hover .hero-grid-overlay {
+  opacity: 1;
+}
+
+/* Focus styles for keyboard navigation */
+.hero-grid-item:focus-visible {
+  outline: 3px solid var(--color-text-primary);
+  outline-offset: -3px;
+  z-index: 2;
+}
+
+/* Pin "Show all photos" button bottom right */
+.hero-grid-show-all-btn {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  padding: 7px 15px;
+  height: 30px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.hero-grid-show-all-btn:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.hero-grid-show-all-btn:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+.show-all-dots-icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .hero-grid-subgrid {
+    display: none;
+  }
+
+  .hero-grid-item-main {
+    border-radius: 12px;
+  }
+
+  .hero-grid-show-all-btn {
+    right: 16px;
+    bottom: 16px;
+  }
+}
