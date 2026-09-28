@@ -1,0 +1,194 @@
+{
+  "title": "Romantic Jacuzzi 1BHK Candolim | Mirashya UG10",
+  "propertyType": "Entire serviced apartment in Candolim, India",
+  "capacity": { "guests": 3, "bedrooms": 1, "beds": 1, "bathrooms": 1 },
+  "price": { "amount": 28499, "currency": "₹", "nights": 5 },
+  "rating": { "score": 4.95, "reviewCount": 19 },
+  "guestFavourite": true,
+  "host": {
+    "name": "Mirashya Homes",
+    "yearsHosting": 2,
+    "reviewCount": 1463,
+    "rating": 4.68,
+    "responseRate": "100%",
+    "responseTime": "Responds within an hour",
+    "bornDecade": "80s",
+    "school": "NICMAR GOA"
+  },
+  "coHosts": [
+    "Sharath",
+    "Aman Dev Pahwa",
+    "Maria Karen Priyanka",
+    "Simran",
+    "Pallavi",
+    "Sanyukta",
+    "Shruti",
+    "Amisha"
+  ],
+  "highlights": [
+    {
+      "icon": "outdoor",
+      "title": "Outdoor entertainment",
+      "description": "The pool and alfresco dining are great for summer trips."
+    },
+    {
+      "icon": "cooling",
+      "title": "Designed for staying cool",
+      "description": "Beat the heat with the A/C and ceiling fan."
+    },
+    {
+      "icon": "selfCheckIn",
+      "title": "Self check-in",
+      "description": "You can check in with the building staff."
+    }
+  ],
+  "description": "Escape to this cozy, stylish 1BHK apartment in Candolim featuring your own private jacuzzi for the ultimate Goa retreat. Stay connected and entertained with high-speed Wi-Fi and a smart TV in a relaxed, beautifully curated living space. This pet-friendly home welcomes your furry companions along for the vacation. Best of all, you are just minutes away from pristine Candolim Beach, vibrant cafés, and lively coastal attractions.",
+  "amenitiesPreview": [
+    "Kitchen",
+    "Wifi",
+    "Dedicated workspace",
+    "Free parking on premises",
+    "Pool",
+    "Hot tub",
+    "Pets allowed",
+    "Exterior security cameras on property"
+  ],
+  "amenitiesFull": {
+    "Kitchen": [
+      "Kitchen",
+      "Fridge",
+      "Freezer",
+      "Microwave",
+      "Cooking basics",
+      "Crockery and cutlery",
+      "Kettle",
+      "Coffee",
+      "Wine glasses",
+      "Toaster",
+      "Blender",
+      "Cooker"
+    ],
+    "Bathroom": [
+      "Hairdryer",
+      "Cleaning products",
+      "Shampoo",
+      "Hot water",
+      "Shower gel"
+    ],
+    "Bedroom and laundry": [
+      "Washing machine",
+      "Hangers",
+      "Bed linen",
+      "Room-darkening blinds",
+      "Iron",
+      "Clothes storage"
+    ],
+    "Outdoor": ["Patio or balcony", "Outdoor dining area"],
+    "Parking and facilities": [
+      "Free parking on premises",
+      "Pool",
+      "Hot tub",
+      "Gym"
+    ],
+    "Services": [
+      "Pets allowed",
+      "Cleaning available during stay",
+      "Long-term stays allowed",
+      "Self check-in"
+    ],
+    "Entertainment": ["TV"],
+    "Family": ["Cot"],
+    "Heating and cooling": ["Air conditioning", "Ceiling fan"],
+    "Home safety": ["Exterior security cameras on property"],
+    "Internet and office": ["Wifi", "Dedicated workspace"]
+  },
+  "reviewCategories": {
+    "cleanliness": 5.0,
+    "accuracy": 5.0,
+    "checkIn": 5.0,
+    "communication": 5.0,
+    "location": 4.8,
+    "value": 4.8
+  },
+  "reviews": [
+    {
+      "name": "Amit",
+      "tenure": "2 months on Airbnb",
+      "rating": 5,
+      "timeAgo": "1 week ago",
+      "text": "Very helpful and responsive team. Safe and peaceful stay. loved everything about the property."
+    },
+    {
+      "name": "Aheesh",
+      "tenure": "3 years on Airbnb",
+      "rating": 5,
+      "timeAgo": "2 weeks ago",
+      "text": "We had a wonderful stay. The apartment was clean, comfortable, and exactly as shown in the photos."
+    }
+  ],
+  "location": {
+    "area": "Candolim, Goa, India",
+    "neighbourhoodHighlight": "Located in the heart of Candolim, offering easy access to beaches, cafés, and popular attractions."
+  },
+  "cancellationPolicy": "Free cancellation before 17 October. Cancel before check-in on 18 October for a partial refund.",
+  "houseRules": [
+    "Check-in after 2:00 pm",
+    "Checkout before 11:00 am",
+    "3 guests maximum"
+  ],
+  "safety": [
+    "Carbon monoxide alarm not reported",
+    "Smoke alarm not reported",
+    "Exterior security cameras on property"
+  ],
+  "photos": [
+    {
+      "id": "1001",
+      "category": "Living room 1",
+      "url": "PLACEHOLDER",
+      "tags": ["Sofa", "Air conditioning", "Ceiling fan", "TV"]
+    },
+    {
+      "id": "1002",
+      "category": "Living room 2",
+      "url": "PLACEHOLDER",
+      "tags": ["Coffee table", "Seating area", "Natural light"]
+    },
+    {
+      "id": "1003",
+      "category": "Full kitchen",
+      "url": "PLACEHOLDER",
+      "tags": ["Microwave", "Fridge", "Cooktop", "Cookware"]
+    },
+    {
+      "id": "1004",
+      "category": "Bedroom",
+      "url": "PLACEHOLDER",
+      "tags": ["King bed", "Bed linen", "Room-darkening blinds", "Air conditioning"]
+    },
+    {
+      "id": "1005",
+      "category": "Full bathroom",
+      "url": "PLACEHOLDER",
+      "tags": ["Hot tub", "Shower", "Hot water", "Hairdryer"]
+    },
+    {
+      "id": "1006",
+      "category": "Gym",
+      "url": "PLACEHOLDER",
+      "tags": ["Fitness equipment", "Weights", "Treadmill"]
+    },
+    {
+      "id": "1007",
+      "category": "Exterior",
+      "url": "PLACEHOLDER",
+      "tags": ["Balcony", "Building facade", "Garden view"]
+    },
+    {
+      "id": "1008",
+      "category": "Pool",
+      "url": "PLACEHOLDER",
+      "tags": ["Swimming pool", "Sun loungers", "Outdoor lighting"]
+    }
+  ]
+}
