@@ -1,0 +1,42 @@
+:root {
+  --tour-section-gap-y: 48px;
+  --tour-sticky-top: 104px; /* below header (88px) + space */
+  --tour-cat-title-size: 32px;
+  --tour-cat-tags-size: 16px;
+}
+
+.category-section {
+  display: grid;
+  grid-template-columns: 1fr var(--photo-stack-width, 458px);
+  column-gap: 40px;
+  margin-bottom: var(--tour-section-gap-y);
+}
+
+.category-info-col {
+  position: relative;
+}
+
+.category-info-sticky {
+  position: sticky;
+  top: var(--tour-sticky-top);
+}
+
+.category-name {
+  margin: 0;
+  font-size: var(--tour-cat-title-size);
+  font-weight: 600;
+  color: var(--color-text, #222222);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.category-tags {
+  margin: 12px 0 0 0;
+  font-size: var(--tour-cat-tags-size);
+  color: #717171;
+  line-height: 1.4;
+}
+
+.category-photos-col {
+  width: var(--photo-stack-width, 458px);
+}

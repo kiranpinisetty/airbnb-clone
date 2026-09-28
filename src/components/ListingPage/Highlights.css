@@ -1,0 +1,48 @@
+:root {
+  --highlights-row-gap: 32px;
+  --highlights-icon-size: 28px;
+}
+
+.highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--highlights-row-gap);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.highlight-icon-box {
+  width: var(--highlights-icon-size);
+  height: var(--highlights-icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.highlight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.highlight-description {
+  margin: 0;
+  font-size: 14px;
+  color: #717171;
+  line-height: 1.4;
+}

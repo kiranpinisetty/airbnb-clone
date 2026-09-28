@@ -1,0 +1,39 @@
+:root {
+  --host-avatar-size: 46px;
+}
+
+.host-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.host-avatar {
+  width: var(--host-avatar-size);
+  height: var(--host-avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #f0efe9;
+  border: 1px solid #ebebeb;
+}
+
+.host-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.host-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.host-tenure {
+  font-size: 14px;
+  color: #6a6a6a;
+  line-height: 1.25;
+}

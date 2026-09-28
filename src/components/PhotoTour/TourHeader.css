@@ -1,0 +1,80 @@
+:root {
+  --tour-header-height: 88px;
+  --tour-header-padding-x: 32px;
+  --tour-btn-size: 40px;
+}
+
+.tour-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--tour-header-height);
+  background-color: #ffffff;
+  z-index: 10;
+  border-bottom: 1px solid transparent;
+}
+
+.tour-header-inner {
+  height: 100%;
+  padding: 0 var(--tour-header-padding-x);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.tour-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tour-header-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text, #222222);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.tour-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.tour-header-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tour-btn-size);
+  height: var(--tour-btn-size);
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--color-text, #222222);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  padding: 0;
+}
+
+.tour-header-icon-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.tour-header-icon-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+.tour-header-chevron-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tour-header-action-icon {
+  width: 16px;
+  height: 16px;
+}

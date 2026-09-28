@@ -42,7 +42,7 @@
       "description": "You can check in with the building staff."
     }
   ],
-  "description": "Escape to this cozy, stylish 1BHK apartment in Candolim featuring your own private jacuzzi for the ultimate Goa retreat. Stay connected and entertained with high-speed Wi-Fi and a smart TV in a relaxed, beautifully curated living space. This pet-friendly home welcomes your furry companions along for the vacation. Best of all, you are just minutes away from pristine Candolim Beach, vibrant cafés, and lively coastal attractions.",
+  "description": "🌴 Plan Your Relaxing Holiday at Amor De Goa by Mirashya Homes! ✨ Stay in this cozy 1BHK in the heart of Candolim, featuring a private jacuzzi 🛁 for the perfect unwind. Enjoy high-speed WiFi 💻, Smart TV 📺, pet-friendly comfort 🐾, and stylish interiors. Just minutes from Candolim Beach 🏖️, popular cafés, restaurants, and nightlife 🍹, it's ideal for couples seeking romance, relaxation, and a touch of luxury in North Goa. ❤️🌴",
   "amenitiesPreview": [
     "Kitchen",
     "Wifi",
@@ -54,142 +54,157 @@
     "Exterior security cameras on property"
   ],
   "amenitiesFull": {
-    "Kitchen": [
-      "Kitchen",
-      "Fridge",
-      "Freezer",
-      "Microwave",
-      "Cooking basics",
-      "Crockery and cutlery",
-      "Kettle",
-      "Coffee",
-      "Wine glasses",
-      "Toaster",
-      "Blender",
-      "Cooker"
-    ],
-    "Bathroom": [
-      "Hairdryer",
-      "Cleaning products",
-      "Shampoo",
-      "Hot water",
-      "Shower gel"
-    ],
-    "Bedroom and laundry": [
-      "Washing machine",
-      "Hangers",
-      "Bed linen",
-      "Room-darkening blinds",
-      "Iron",
-      "Clothes storage"
-    ],
+    "Kitchen": ["Kitchen", "Fridge", "Freezer", "Microwave", "Cooking basics", "Crockery and cutlery", "Kettle", "Coffee", "Wine glasses", "Toaster", "Blender", "Cooker"],
+    "Bathroom": ["Hairdryer", "Cleaning products", "Shampoo", "Hot water", "Shower gel"],
+    "Bedroom and laundry": ["Washing machine", "Hangers", "Bed linen", "Room-darkening blinds", "Iron", "Clothes storage"],
     "Outdoor": ["Patio or balcony", "Outdoor dining area"],
-    "Parking and facilities": [
-      "Free parking on premises",
-      "Pool",
-      "Hot tub",
-      "Gym"
-    ],
-    "Services": [
-      "Pets allowed",
-      "Cleaning available during stay",
-      "Long-term stays allowed",
-      "Self check-in"
-    ],
-    "Entertainment": ["TV"],
-    "Family": ["Cot"],
-    "Heating and cooling": ["Air conditioning", "Ceiling fan"],
-    "Home safety": ["Exterior security cameras on property"],
-    "Internet and office": ["Wifi", "Dedicated workspace"]
+    "Parking and facilities": ["Free parking on premises", "Pool", "Hot tub", "Gym"],
+    "Services": ["Pets allowed", "Cleaning available during stay", "Long-term stays allowed", "Private entrance"]
   },
-  "reviewCategories": {
-    "cleanliness": 5.0,
-    "accuracy": 5.0,
-    "checkIn": 5.0,
-    "communication": 5.0,
-    "location": 4.8,
-    "value": 4.8
-  },
+  "reviewCategories": [
+    { "label": "Cleanliness", "score": 4.9 },
+    { "label": "Accuracy", "score": 5.0 },
+    { "label": "Check-in", "score": 5.0 },
+    { "label": "Communication", "score": 5.0 },
+    { "label": "Location", "score": 4.8 },
+    { "label": "Value", "score": 4.8 }
+  ],
   "reviews": [
     {
-      "name": "Amit",
-      "tenure": "2 months on Airbnb",
-      "rating": 5,
-      "timeAgo": "1 week ago",
-      "text": "Very helpful and responsive team. Safe and peaceful stay. loved everything about the property."
+      "id": "r1",
+      "author": "Priya",
+      "location": "Mumbai, India",
+      "date": "September 2025",
+      "text": "Absolutely stunning property! The jacuzzi was a dream and the space was spotlessly clean. Would love to come back."
     },
     {
-      "name": "Aheesh",
-      "tenure": "3 years on Airbnb",
-      "rating": 5,
-      "timeAgo": "2 weeks ago",
-      "text": "We had a wonderful stay. The apartment was clean, comfortable, and exactly as shown in the photos."
+      "id": "r2",
+      "author": "Rahul",
+      "location": "Bengaluru, India",
+      "date": "August 2025",
+      "text": "Perfect Goa staycation. Loved the vibe of the lower-ground lounge. Host was super responsive."
+    },
+    {
+      "id": "r3",
+      "author": "Sneha",
+      "location": "Pune, India",
+      "date": "July 2025",
+      "text": "Loved every bit of it! The pool, the gym, and the bedroom were all immaculate. Highly recommend."
     }
   ],
   "location": {
-    "area": "Candolim, Goa, India",
-    "neighbourhoodHighlight": "Located in the heart of Candolim, offering easy access to beaches, cafés, and popular attractions."
+    "city": "Candolim",
+    "state": "Goa",
+    "country": "India",
+    "lat": 15.5179,
+    "lng": 73.7638,
+    "description": "Candolim is a laid-back beach village on the north Goa coast, known for its clean beaches, water sports, and vibrant shacks. The property is a short drive from Sinquerim and Calangute."
   },
-  "cancellationPolicy": "Free cancellation before 17 October. Cancel before check-in on 18 October for a partial refund.",
+  "cancellationPolicy": "Moderate – Full refund for cancellations made 5 days before check-in.",
   "houseRules": [
-    "Check-in after 2:00 pm",
-    "Checkout before 11:00 am",
-    "3 guests maximum"
+    "Check-in: 2:00 PM – 10:00 PM",
+    "Checkout: 11:00 AM",
+    "No smoking",
+    "No parties or events",
+    "Pets allowed"
   ],
   "safety": [
-    "Carbon monoxide alarm not reported",
-    "Smoke alarm not reported",
-    "Exterior security cameras on property"
+    "Exterior security cameras",
+    "Smoke alarm",
+    "Carbon monoxide alarm",
+    "Fire extinguisher"
   ],
-  "heroPhotoIds": ["1002", "1004", "1005", "1006", "1002"],
+  "heroPhotoIds": ["1000", "1010", "1040", "1022", "1027"],
   "photos": [
+    { "id": "1000", "category": "Living room 2", "url": "/photos/2367476f-11c4-4a14-a7c6-267be62c1d59.jpeg", "alt": "Rattan sofa set with four wall lights against grey tiled wall" },
+    { "id": "1001", "category": "Living room 2", "url": "/photos/b6599f26-d65c-4df0-baf2-ef18c82a86a3.jpeg", "alt": "Rattan seating area with jacuzzi edge visible on right" },
+    { "id": "1002", "category": "Living room 2", "url": "/photos/090d8b0b-b539-42c0-84f8-e1fb0cdf9a93.jpeg", "alt": "Frontal view of rattan sofa and chairs with jacuzzi beside them" },
+    { "id": "1003", "category": "Living room 2", "url": "/photos/70325367-cbae-4993-b560-18cd3f6edd53.jpeg", "alt": "Tight shot of rattan sofa facing grey tiled wall, jacuzzi in foreground" },
+    { "id": "1004", "category": "Living room 2", "url": "/photos/30ad93b2-293f-494d-b645-626303c6cb93.jpeg", "alt": "Single rattan chair next to wooden jacuzzi surround and potted palm" },
+    { "id": "1005", "category": "Living room 2", "url": "/photos/862d936c-0f34-4e50-af87-b519e2781d19.jpeg", "alt": "Dining table in foreground, rattan seating and jacuzzi behind dividing column" },
+    { "id": "1006", "category": "Living room 2", "url": "/photos/cc7a56bd-242c-498a-9aef-0cffac619e54.jpeg", "alt": "High-angle view of the entire lower-ground space with jacuzzi and seating" },
+    { "id": "1007", "category": "Living room 2", "url": "/photos/f6de1663-4e9c-4414-b63b-29a154a92ee1.jpeg", "alt": "Wide angle looking back — jacuzzi left, dining table centre, wall fans visible" },
+    { "id": "1008", "category": "Living room 2", "url": "/photos/34529829-a971-44d3-ac2f-90ea3678a34d.jpeg", "alt": "Daytime wide view of seating and jacuzzi area with lush plants" },
+    { "id": "1009", "category": "Living room 2", "url": "/photos/3c6e6809-1bb1-47a6-8e24-aff593e1c28f.jpeg", "alt": "Widest view of lower-ground area — plants, bench, dining table and jacuzzi" },
+    { "id": "1010", "category": "Living room 2", "url": "/photos/3c90338e-86b4-423f-aae1-279e0ccc3a18.jpeg", "alt": "Side view of rattan sofa set with decorative cutting boards and jacuzzi" },
+    { "id": "1011", "category": "Living room 2", "url": "/photos/153aa732-4935-48b8-a6fe-b469b6af5efc.jpeg", "alt": "Wide view of seating area, dining zone, and kitchen alcove with Mona Lisa art" },
+    { "id": "1012", "category": "Living room 2", "url": "/photos/dc01fd46-b119-48d3-a43b-f6c093e26eca.jpeg", "alt": "View from kitchen side toward jacuzzi and seating, dining table in foreground" },
+    { "id": "1013", "category": "Living room 2", "url": "/photos/9642a60d-e9de-4e1a-89c2-9ebd230f4a74.jpeg", "alt": "Jacuzzi steps and washing machine alcove with Mona Lisa painting above" },
+    { "id": "1014", "category": "Living room 1", "url": "/photos/79addceb-8c2d-419b-80ff-e29af426a94c.jpeg", "alt": "Indoor living room with TV on sideboard, open-plan kitchen, and curtained window" },
+    { "id": "1015", "category": "Living room 1", "url": "/photos/a45feaa2-b607-4092-83ac-5fd4b2894959.jpeg", "alt": "Indoor living room from same angle, TV on wooden sideboard, kitchen behind" },
+    { "id": "1016", "category": "Living room 1", "url": "/photos/f1da1c3d-0d10-481e-9b63-c71f9073f30b.jpeg", "alt": "Living room from opposite end — TV left, orange leather sofa right, kitchen visible" },
+    { "id": "1017", "category": "Living room 1", "url": "/photos/a9831aeb-f441-44f5-a38f-4cf54e3f0fcf.jpeg", "alt": "Wide-angle indoor living room with orange leather sofa, dining area, and front door" },
+    { "id": "1018", "category": "Full kitchen", "url": "/photos/56c44812-52c0-4481-90d8-101ec1f34c7a.jpeg", "alt": "Full kitchen counter with fridge, microwave, induction hob, kettle and sink" },
+    { "id": "1019", "category": "Full kitchen", "url": "/photos/ddc853d7-e658-405c-bedc-8f31106c447e.jpeg", "alt": "Kitchen counter with induction hob and sink, dining table visible on right" },
+    { "id": "1020", "category": "Bedroom", "url": "/photos/3cf31697-f3f3-4c60-82c4-029acb119ae4.jpeg", "alt": "Bedroom with double bed, AC unit, pendant lamp and curtained window" },
+    { "id": "1021", "category": "Bedroom", "url": "/photos/0622ab42-b851-4d55-9d9f-df3143bc5909.jpeg", "alt": "Bedroom viewed from the foot of the bed, AC and rattan pendant lamp above" },
+    { "id": "1022", "category": "Bedroom", "url": "/photos/a74e3c0b-3188-4442-9146-1cd4d6ea45df.jpeg", "alt": "Bedroom with double bed, curtains, wardrobe, full-length mirror and open door" },
+    { "id": "1023", "category": "Bedroom", "url": "/photos/67c61c6f-6260-4809-9510-0360e58a345d.jpeg", "alt": "Bedroom with double bed angled toward window, wardrobe and mirror" },
+    { "id": "1024", "category": "Bedroom", "url": "/photos/48a8ffbc-fbf7-4f84-bc29-ee400da3f08b.jpeg", "alt": "Bedroom showing glass-panelled wardrobe, full-length mirror and two doors" },
+    { "id": "1025", "category": "Bedroom", "url": "/photos/1c827136-4a85-4fe0-8e69-3fd8ea19bb17.jpeg", "alt": "Bedroom entrance hallway with full-length mirror and view through to seating area" },
+    { "id": "1026", "category": "Full bathroom", "url": "/photos/97c78f8a-5090-4663-aebc-ba4e13b47092.jpeg", "alt": "Marble-clad bathroom with round mirror, sink, toilet and walk-in shower" },
+    { "id": "1027", "category": "Exterior", "url": "/photos/c904e1ab-a39d-4ef0-bdea-8c0bd16b9e3d.jpeg", "alt": "Amor de Goa building exterior — yellow and white facade from street corner" },
+    { "id": "1028", "category": "Exterior", "url": "/photos/5b856fde-a393-41bf-b373-c9d02e64221f.jpeg", "alt": "Full corner view of Amor de Goa building with road and parking area" },
+    { "id": "1029", "category": "Exterior", "url": "/photos/608748cd-6ee7-4a71-88a2-ba79d3ddba5a.jpeg", "alt": "Front face of Amor de Goa building with name sign and palm trees" },
+    { "id": "1030", "category": "Exterior", "url": "/photos/42befad7-fb29-473d-91db-b03e7a544d1d.jpeg", "alt": "Aerial drone shot of building with red roof surrounded by neighbourhood" },
+    { "id": "1031", "category": "Exterior", "url": "/photos/5adfdf3e-d497-4efc-ab8c-fc559dab311e.jpeg", "alt": "Distant aerial view of building in Candolim with Arabian Sea on the horizon" },
+    { "id": "1032", "category": "Pool", "url": "/photos/8eb65a8b-e795-4870-b141-6f63b1be24ae.jpeg", "alt": "Internal courtyard pool surrounded by potted plants and multi-storey balconies" },
+    { "id": "1033", "category": "Pool", "url": "/photos/929545d3-e241-46c0-8a70-c24531ce7b54.jpeg", "alt": "Pool from pool-deck level with Amor de Goa sign on wall and wooden decking" },
+    { "id": "1034", "category": "Pool", "url": "/photos/fc02f48f-a937-42c5-895d-f9cc3113d6ca.jpeg", "alt": "Top-down view of courtyard pool with potted plants lining the perimeter" },
+    { "id": "1035", "category": "Gym", "url": "/photos/4fede77d-7a71-446f-89e3-263af937f3fa.jpeg", "alt": "Gym with treadmill, elliptical, bike, dumbbells, bench press and ceiling fans" },
+    { "id": "1036", "category": "Gym", "url": "/photos/9aa8e65f-94ac-4ba0-9a10-9ec91e536d22.jpeg", "alt": "Gym showing treadmill, elliptical, exercise bike and dumbbell rack" },
+    { "id": "1037", "category": "Gym", "url": "/photos/79f59adb-5a5f-4d6c-8109-1f01f4ca0d03.jpeg", "alt": "Wide gym interior with treadmill, multi-gym machine, weights and balcony opening" },
+    { "id": "1038", "category": "Gym", "url": "/photos/246bd88d-4dd6-4117-a401-02a36ebfcf16.jpeg", "alt": "Aerofit multi-gym machine close-up with exercise ball and washroom door" },
+    { "id": "1039", "category": "Gym", "url": "/photos/f19d8c0a-1d88-42a4-9218-686d4f0db7e4.jpeg", "alt": "Gym viewed from entrance — multi-gym, exercise bike, bench and open window" },
+    { "id": "1040", "category": "Additional photos", "url": "/photos/9be71047-fc52-438a-9270-75cb470f6752.jpeg", "alt": "Close-up of jacuzzi with jets, faucet, headrests and wooden deck platform" },
+    { "id": "1041", "category": "Additional photos", "url": "/photos/fe37b80e-da8a-4225-b27b-dfbb5d763c01.jpeg", "alt": "Utility alcove with sink, washing machine and Mona Lisa artwork above" }
+  ],
+  "categories": [
     {
-      "id": "1001",
-      "category": "Living room 1",
-      "url": "PLACEHOLDER",
-      "tags": ["Sofa", "Air conditioning", "Ceiling fan", "TV"]
+      "name": "Living room 2",
+      "tags": ["Ceiling fan", "Hot tub"],
+      "thumbnailPhotoId": "1000"
     },
     {
-      "id": "1002",
-      "category": "Living room 2",
-      "url": "src/assets/30ad93b2-293f-494d-b645-626303c6cb93.jpeg",
-      "tags": ["Coffee table", "Seating area", "Natural light"]
+      "name": "Living room 1",
+      "tags": ["Sofa", "Air conditioning", "Ceiling fan", "TV"],
+      "thumbnailPhotoId": "1014"
     },
     {
-      "id": "1003",
-      "category": "Full kitchen",
-      "url": "PLACEHOLDER",
-      "tags": ["Microwave", "Fridge", "Cooktop", "Cookware"]
+      
+      "name": "Full kitchen",
+      "tags": ["Freezer", "Fridge", "Blender", "Cooker", "Cooking basics", "Kettle", "Microwave", "Toaster", "Wine glasses", "Coffee", "Crockery and cutlery"],
+      "thumbnailPhotoId": "1018"
     },
     {
-      "id": "1004",
-      "category": "Bedroom",
-      "url": "src/assets/a74e3c0b-3188-4442-9146-1cd4d6ea45df.jpeg",
-      "tags": ["King bed", "Bed linen", "Room-darkening blinds", "Air conditioning"]
+      "name": "Bedroom",
+      "tags": ["Double bed", "Air conditioning", "Bed linen", "Ceiling fan", "Clothes storage", "Cot", "Hangers", "Iron", "Room-darkening blinds", "Cleaning available during stay", "Cleaning products", "Long-term stays allowed", "Private entrance", "Wifi"],
+      "thumbnailPhotoId": "1020"
     },
     {
-      "id": "1005",
-      "category": "Full bathroom",
-      "url": "src/assets/c904e1ab-a39d-4ef0-bdea-8c0bd16b9e3d.jpeg",
-      "tags": ["Hot tub", "Shower", "Hot water", "Hairdryer"]
+      "name": "Full bathroom",
+      "tags": ["Hairdryer", "Hot water", "Shampoo", "Shower gel"],
+      "thumbnailPhotoId": "1026"
     },
     {
-      "id": "1006",
-      "category": "Gym",
-      "url": "src/assets/4fede77d-7a71-446f-89e3-263af937f3fa.jpeg",
-      "tags": ["Fitness equipment", "Weights", "Treadmill"]
+      "name": "Gym",
+      "tags": ["Air conditioning", "Gym", "Exercise equipment", "Ceiling fan"],
+      "thumbnailPhotoId": "1035"
     },
     {
-      "id": "1007",
-      "category": "Exterior",
-      "url": "PLACEHOLDER",
-      "tags": ["Balcony", "Building facade", "Garden view"]
+      "name": "Exterior",
+      "tags": [],
+      "thumbnailPhotoId": "1027"
     },
     {
-      "id": "1008",
-      "category": "Pool",
-      "url": "PLACEHOLDER",
-      "tags": ["Swimming pool", "Sun loungers", "Outdoor lighting"]
+      "name": "Pool",
+      "tags": ["Pool"],
+      "thumbnailPhotoId": "1032"
+    },
+    {
+      "name": "Additional photos",
+      "tags": [],
+      "thumbnailPhotoId": "1040"
     }
   ]
 }

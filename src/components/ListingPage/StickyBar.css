@@ -1,0 +1,147 @@
+:root {
+  --sticky-bar-height: 66px;
+  --sticky-bar-max-width: 1120px;
+  --sticky-bar-reserve-width: 92px;
+  --sticky-bar-reserve-height: 40px;
+  --sticky-bar-reserve-radius: 8px;
+}
+
+.sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--sticky-bar-height);
+  background-color: #ffffff;
+  border-bottom: 1px solid #ebebeb;
+  z-index: 100;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sticky-bar-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.sticky-bar-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.sticky-bar-inner {
+  max-width: var(--sticky-bar-max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-bar-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.sticky-bar-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222222;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.sticky-bar-link:hover {
+  color: #000000;
+}
+
+.sticky-bar-link:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: -2px;
+}
+
+.sticky-bar-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: #222222;
+}
+
+.sticky-bar-booking {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sticky-bar-price-block {
+  text-align: right;
+  line-height: 1.25;
+}
+
+.sticky-bar-price-line {
+  font-size: 15px;
+  color: #222222;
+}
+
+.sticky-bar-amount {
+  font-weight: 700;
+}
+
+.sticky-bar-nights {
+  font-weight: 400;
+}
+
+.sticky-bar-rating-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 14px;
+  color: #222222;
+  margin-top: 2px;
+}
+
+.sticky-bar-reviews-count {
+  color: #717171;
+  text-decoration: underline;
+}
+
+.sticky-bar-reserve-btn {
+  width: var(--sticky-bar-reserve-width);
+  height: var(--sticky-bar-reserve-height);
+  background-color: #E61E4D;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--sticky-bar-reserve-radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-bar-reserve-btn:hover {
+  background-color: #d70466;
+}
+
+.sticky-bar-reserve-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}

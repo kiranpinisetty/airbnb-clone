@@ -1,0 +1,76 @@
+:root {
+  --amenities-heading-size: 22px;
+  --amenities-row-height: 48px;
+  --amenities-btn-height: 48px;
+  --amenities-btn-radius: 8px;
+}
+
+.amenities-preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.amenities-preview-heading {
+  margin: 0;
+  font-size: var(--amenities-heading-size);
+  font-weight: 600;
+  color: #222222;
+  letter-spacing: -0.01em;
+}
+
+.amenities-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0;
+  column-gap: 24px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: var(--amenities-row-height);
+}
+
+.amenity-icon {
+  flex-shrink: 0;
+}
+
+.amenity-label {
+  font-size: 16px;
+  color: #222222;
+  letter-spacing: -0.01em;
+}
+
+.amenity-label-struck {
+  text-decoration: line-through;
+  color: #717171;
+}
+
+.amenities-show-all-btn {
+  width: fit-content;
+  height: var(--amenities-btn-height);
+  padding: 0 24px;
+  background-color: transparent;
+  border: 1px solid #222222;
+  border-radius: var(--amenities-btn-radius);
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.amenities-show-all-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.amenities-show-all-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}

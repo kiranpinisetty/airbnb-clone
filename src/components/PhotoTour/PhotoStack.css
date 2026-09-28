@@ -1,0 +1,75 @@
+:root {
+  --photo-stack-width: 458px;
+  --photo-stack-gap: 12px;
+  --photo-stack-radius: 10px;
+  --photo-full-height: 305px;
+  --photo-half-width: 223px;
+  --photo-half-height: 149px;
+}
+
+.photo-stack {
+  width: var(--photo-stack-width);
+  display: flex;
+  flex-direction: column;
+  gap: var(--photo-stack-gap);
+}
+
+.photo-stack-full {
+  width: 100%;
+}
+
+.photo-stack-row-pair {
+  display: flex;
+  gap: var(--photo-stack-gap);
+  width: 100%;
+}
+
+.photo-stack-btn {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  border-radius: var(--photo-stack-radius);
+  overflow: hidden;
+}
+
+.photo-stack-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+.photo-stack-btn-full {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  height: var(--photo-full-height);
+}
+
+.photo-stack-btn-half {
+  flex: 1 1 0;
+  width: var(--photo-half-width);
+  height: var(--photo-half-height);
+}
+
+.photo-stack-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-stack-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 200ms ease;
+  pointer-events: none;
+}
+
+.photo-stack-btn:hover .photo-stack-overlay {
+  background-color: rgba(0, 0, 0, 0.1);
+}

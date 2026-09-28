@@ -51,7 +51,7 @@ export default function HeroGrid({ photos = [], heroPhotoIds = [], onOpenPhotoTo
   };
 
   return (
-    <div className="hero-grid-container">
+    <div id="photos" className="hero-grid-container">
       <div className="hero-grid" role="region" aria-label="Photo gallery preview">
         {/* Main large photo (left side, 50% width) */}
         {mainPhoto && (
@@ -63,7 +63,7 @@ export default function HeroGrid({ photos = [], heroPhotoIds = [], onOpenPhotoTo
           >
             <img
               src={getImageUrl(mainPhoto)}
-              alt={mainPhoto.category || 'Primary listing view'}
+              alt={mainPhoto.alt || mainPhoto.category || 'Primary listing view'}
               className="hero-grid-img"
               loading="eager"
             />
@@ -86,7 +86,7 @@ export default function HeroGrid({ photos = [], heroPhotoIds = [], onOpenPhotoTo
               >
                 <img
                   src={getImageUrl(photo)}
-                  alt={photo.category || `Listing view ${photoNumber}`}
+                  alt={photo.alt || photo.category || `Listing view ${photoNumber}`}
                   className="hero-grid-img"
                   loading="lazy"
                 />
