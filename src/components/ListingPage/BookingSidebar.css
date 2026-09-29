@@ -156,11 +156,17 @@
   border-right: 1px solid #b0b0b0;
 }
 
+.booking-guests-control-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .booking-guests-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .booking-guests-content {
@@ -180,6 +186,117 @@
   font-size: 14px;
   color: #222222;
   line-height: 1.2;
+}
+
+/* Guest Dropdown Popover */
+.booking-guest-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.guest-popover-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.guest-popover-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.guest-popover-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+}
+
+.guest-popover-subtitle {
+  font-size: 12px;
+  color: #717171;
+}
+
+.guest-popover-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guest-stepper-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #717171;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.guest-stepper-btn:not(:disabled):hover {
+  border-color: #222222;
+  color: #222222;
+}
+
+.guest-stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #e0e0e0;
+}
+
+.guest-stepper-btn:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+.guest-stepper-count {
+  font-size: 14px;
+  color: #222222;
+  min-width: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.guest-popover-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.guest-popover-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.guest-popover-close-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.guest-popover-close-btn:focus-visible {
+  outline: 2px solid #222222;
 }
 
 /* Free cancellation pill */

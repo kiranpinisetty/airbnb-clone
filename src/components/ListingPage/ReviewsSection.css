@@ -44,15 +44,12 @@
   gap: 16px;
 }
 
-.reviews-laurel-icon {
-  width: var(--reviews-laurel-size);
+.reviews-laurel-img {
+  width: auto;
   height: var(--reviews-laurel-size);
-  color: #222222;
+  object-fit: contain;
   flex-shrink: 0;
-}
-
-.reviews-laurel-flip {
-  transform: scaleX(-1);
+  display: block;
 }
 
 .reviews-big-score {

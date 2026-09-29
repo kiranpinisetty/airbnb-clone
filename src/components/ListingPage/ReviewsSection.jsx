@@ -7,6 +7,8 @@ import {
   Map,
   Tag,
 } from 'lucide-react';
+import laurelLeft from '../../assets/laurel-left.png';
+import laurelRight from '../../assets/laurel-right.png';
 import { getAsset } from '../../lib/assets';
 import './ReviewsSection.css';
 
@@ -46,7 +48,19 @@ export default function ReviewsSection({ reviews, rating }) {
       {/* Centered Laurel + Guest Favourite Block */}
       <div className="reviews-hero-block">
         <div className="reviews-hero-score-row">
+          <img
+            src={laurelLeft}
+            alt=""
+            aria-hidden="true"
+            className="reviews-laurel-img"
+          />
           <span className="reviews-big-score">{summary.score}</span>
+          <img
+            src={laurelRight}
+            alt=""
+            aria-hidden="true"
+            className="reviews-laurel-img"
+          />
         </div>
 
         <h2 className="reviews-hero-title">Guest favourite</h2>

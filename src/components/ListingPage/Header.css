@@ -96,10 +96,11 @@
 }
 
 .search-house-icon {
-  width: 22px;
-  height: 20px;
-  object-fit: contain;
+  width: 48px;
+  height: 48px;
+  object-fit: fill;
   display: block;
+  margin-left: -6px;
 }
 
 .search-divider {

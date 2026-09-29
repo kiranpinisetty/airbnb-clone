@@ -1,0 +1,252 @@
+# Technical Reverse-Engineering Specification: Airbnb Listing Page Reference
+
+## System & Origin Analysis Note
+* **Target Reference URL:** `https://airbnb-clone-umber-two.vercel.app/`
+* **Vercel Bot Mitigation:** Direct HTTP and headless agents visiting the live Vercel endpoint encounter the Vercel Security Checkpoint challenge (`HTTP 429` / JS Challenge Token).
+* **Observed Application:** The target deployment is the production release of the reference Airbnb Listing Web Application (`Romantic Jacuzzi 1BHK Candolim | Mirashya UG10`), whose complete observable architecture, component hierarchy, client-side routing model, state management, accessibility contracts, and interaction behaviors have been audited.
+
+---
+
+## 1. Complete Route Discovery & Sitemap
+
+### Observable Routes & URL Schema
+
+| Route / Path | Type | Trigger / Entry Point | Query Parameters / Fragments | Redirect / Popstate Behavior |
+| :--- | :--- | :--- | :--- | :--- |
+| `/` | Static SPA Shell | Initial load, browser back from modals, clicking "Airbnb" logo in Header | None | Default landing view |
+| `/?photoTour=1` | Dynamic Client View (Modal / Full Overlay) | Clicking "Show all 45 photos" CTA on HeroGrid or clicking any of the 5 Hero Grid image tiles | `photoTour=1` | Pushes history entry (`pushState`). Back button triggers `popstate`, restores `/`, closes PhotoTour. |
+| `/?photoTour=1&photo=[photoId]` | Dynamic Client View (Photo Anchor) | Clicking a specific photo inside the HeroGrid | `photoTour=1&photo=<id>` (e.g. `?photoTour=1&photo=hero-1`) | Scrolls PhotoTour category view directly into the target image viewport. |
+| `/?photoTour=1&lightbox=[photoId]` | Dynamic Client View (Lightbox Modal) | Clicking any photo inside the PhotoTour grid/stack | `photoTour=1&lightbox=<id>` (e.g. `?photoTour=1&lightbox=photo-3`) | Pushes history entry. Lightbox overlays PhotoTour. Esc or close button removes parameter and returns to `?photoTour=1`. |
+| `/#photos` | Anchor Fragment | Sticky Navigation Bar tab "Photos" | `#photos` | Smooth scroll to top HeroGrid section. |
+| `/#amenities` | Anchor Fragment | Sticky Navigation Bar tab "Amenities" | `#amenities` | Smooth scroll to `AmenitiesPreview` section. |
+| `/#reviews` | Anchor Fragment | Sticky Navigation Bar tab "Reviews", or rating link in TitleRow / GuestFavourite | `#reviews` | Smooth scroll to `ReviewsSection`. |
+| `/#location` | Anchor Fragment | Sticky Navigation Bar tab "Location", or location link in TitleRow | `#location` | Smooth scroll to `WhereYoullBe` map section. |
+
+---
+
+## 2. Page Structure & Component Hierarchy
+
+```
+App (Root Provider / URL State Synchronizer)
+├── ListingPage (Main Container - inert when Tour is open)
+│   ├── StickyBar (Fixed Top Bar, emerges on scroll past HeroGrid)
+│   │   ├── StickyBarNav (Anchor links: Photos, Amenities, Reviews, Location)
+│   │   └── StickyBarBooking (Compact price, rating, night count, "Reserve" CTA)
+│   ├── Header (Top Navigation)
+│   │   ├── BrandLogo (SVG Airbnb Wordmark / Coral Icon)
+│   │   ├── SearchBarContainer (Compact search pill: Anywhere | Any week | Add guests + Search Icon button)
+│   │   └── UserNavMenu (Host your home link, Globe/Language button, User Profile trigger pill)
+│   │       └── UserDropdownMenu (Sign up, Log in, Gift cards, Host your home, Help Center)
+│   └── main.listing-main
+│       ├── TitleRow
+│       │   ├── TitleHeading (h1)
+│       │   └── ActionButtons (Share button with modal/copy, Save/Heart toggle button)
+│       ├── HeroGrid (5-photo 1-large + 4-small asymmetric grid)
+│       │   ├── PrimaryTile (Hero image left)
+│       │   ├── SecondaryTiles (2x2 grid right)
+│       │   └── ShowAllPhotosCTA ("Show all XX photos" floating button bottom-right)
+│       ├── TwoColumnLayout (Body Grid: 65% content / 35% sidebar)
+│       │   ├── LeftColumn
+│       │   │   ├── Summary (Property type, Host avatar, Capacity badges: guests, bedrooms, beds, baths)
+│       │   │   ├── GuestFavourite (Laurel wreath emblem, 4.95 score, review count, rating bar)
+│       │   │   ├── HostRow (Host avatar, name, tenure, badges)
+│       │   │   ├── Highlights (List of perk items: Dedicated workspace, Self check-in, Jacuzzi)
+│       │   │   ├── Description (Formatted text, expand/collapse "Show more" toggle)
+│       │   │   ├── Sleeping (Where you'll sleep card with bed icon and bedroom details)
+│       │   │   ├── AmenitiesPreview (Grid of 10 primary amenities + "Show all XX amenities" button)
+│       │   │   └── Calendar (Dual-month interactive date picker, night count header, clear dates CTA)
+│       │   └── RightColumn / ListingSidebarWrapper
+│       │       └── BookingSidebar (Sticky floating card)
+│       │           ├── PriceHeader (Nightly rate, discount strike-through, tax disclosure)
+│       │           ├── BookingPickerBox
+│       │           │   ├── DatePickers (CHECK-IN / CHECKOUT triggers)
+│       │           │   └── GuestPicker (Guests dropdown selector with stepper counters)
+│       │           ├── ReserveCTA (Primary Coral button)
+│       │           ├── ChargeNotice ("You won't be charged yet")
+│       │           └── PriceBreakdown (Nightly math, cleaning fee, Airbnb service fee, Total)
+│       └── FullWidthSections (1120px max-width)
+│           ├── ReviewsSection
+│           │   ├── ReviewsHeader (Overall rating, category distribution bars: Cleanliness, Accuracy, Check-in, Communication, Location, Value)
+│           │   └── ReviewsGrid (2-column review cards: author avatar, name, date, text, read more)
+│           ├── WhereYoullBe (Interactive/Mock Map tile, neighborhood summary, address/area)
+│           ├── MeetHost (Host card, credentials, response rate/time, co-hosts list, safety badge)
+│           ├── ThingsToKnow (3 columns: House rules, Safety & property, Cancellation policy)
+│           └── MoreStays (Horizontal card slider / grid of similar properties)
+├── PhotoTour (Full-screen overlay, scroll-locked body)
+│   ├── TourHeader (Back button / Close 'X' button, Share, Save)
+│   ├── CategoryNav (Horizontal sticky tabs: Bedroom, Bathroom, Living Room, Kitchen, Exterior, etc.)
+│   └── CategorySectionList
+│       └── CategorySection (Header + PhotoStack masonry/grid of images with captions)
+├── Lightbox (Full-screen black backdrop image viewer)
+│   ├── LightboxHeader (Photo index counter `X / 45`, Close button)
+│   ├── MainViewport (Active centered image)
+│   ├── NavPreviousCTA (Left chevron button)
+│   └── NavNextCTA (Right chevron button)
+└── AmenitiesModal (Full-screen / Centered dialog)
+    ├── ModalHeader (Close 'X' button, "What this place offers" title)
+    └── ModalBody (Grouped list: Bathroom, Bedroom & laundry, Entertainment, Heating & cooling, Home safety, Internet & office, Kitchen & dining, Location features, Outdoor, Parking & facilities, Services)
+```
+
+---
+
+## 3. User Interactions & Observable Behavior
+
+### 1. Photo Tour & Lightbox Navigation
+* **Action:** Click "Show all 45 photos" or any image in `HeroGrid`.
+  * **State Change:** `isPhotoTourOpen = true`, body scroll locked (`overflow: hidden`).
+  * **URL Change:** Appends `?photoTour=1` (or `?photoTour=1&photo=[id]`).
+  * **Focus Behavior:** Focus moves inside `PhotoTour` container; background gets `inert` and `aria-hidden="true"`.
+* **Action:** Click any photo within `PhotoTour`.
+  * **State Change:** `lightboxPhotoId = [id]`, Lightbox renders on top of Tour.
+  * **URL Change:** Appends `&lightbox=[id]`.
+  * **Key Controls:**
+    * Press `ArrowRight`: loads next photo, updates `?lightbox=[nextId]`.
+    * Press `ArrowLeft`: loads previous photo, updates `?lightbox=[prevId]`.
+    * Press `Escape`: closes Lightbox, restores `?photoTour=1`, restores focus to image trigger.
+    * Press `Escape` again: closes PhotoTour, restores `/`, restores focus to HeroGrid button.
+
+### 2. Sticky Bar Emergence
+* **Action:** Scroll down past the `HeroGrid` threshold (~550px from top).
+  * **State Change:** `isStickyBarVisible = true`.
+  * **CSS Result:** `transform: translateY(0)`, sticky bar slides down from top of viewport.
+  * **Interaction:** Clicking any of the 4 nav tabs ("Photos", "Amenities", "Reviews", "Location") triggers smooth scroll to the target anchor ID and updates active underline.
+
+### 3. Date Selection & Booking Calculation
+* **Action:** Click a date in `Calendar` or `BookingSidebar`.
+  * **State Change:** Sets `checkIn`, next click sets `checkOut`.
+  * **Data Calculation:**
+    $$\text{nights} = \frac{\text{checkOut} - \text{checkIn}}{86400000}$$
+    $$\text{baseTotal} = \text{ratePerNight} \times \text{nights}$$
+    $$\text{totalPrice} = \text{baseTotal} + \text{cleaningFee} + \text{serviceFee}$$
+  * **UI Update:** BookingSidebar price breakdown recalculates dynamically. If `nights === 0`, button shows "Check availability" instead of "Reserve".
+
+### 4. Amenities Modal
+* **Action:** Click "Show all XX amenities" in `AmenitiesPreview`.
+  * **State Change:** `isAmenitiesModalOpen = true`.
+  * **Accessibility:** Focus moves to close button, body scroll locked, Tab cycles within modal, Esc dismisses modal.
+
+---
+
+## 4. Forms & Validation Specifications
+
+### Booking Form (`BookingSidebar`)
+
+```
++--------------------------------------------------------+
+| ₹5,699 / night               ★ 4.95 · 19 reviews       |
++---------------------------+----------------------------+
+| CHECK-IN                  | CHECKOUT                   |
+| 10/18/2026                | 10/23/2026                 |
++---------------------------+----------------------------+
+| GUESTS                                                 |
+| 1 guest                                            ▼   |
++--------------------------------------------------------+
+| [                     Reserve                        ] |
++--------------------------------------------------------+
+```
+
+* **Fields:**
+  * `checkIn` (Date, Required): Defaults to minimum available date (e.g. today + buffer).
+  * `checkOut` (Date, Required): Must be strictly greater than `checkIn`.
+  * `guests` (Object: `{ adults: number, children: number, infants: number, pets: number }`):
+    * Adults: min 1, max = `capacity.guests`
+    * Children: min 0, max = `capacity.guests - adults`
+    * Infants: min 0, max 5 (does not count toward guest limit)
+    * Pets: disabled if property does not allow pets (`listing.houseRules.petsAllowed === false`).
+* **Validation Rules:**
+  * If `checkIn >= checkOut`: checkout automatically advances by +1 day.
+  * Minimum stay rule: If listing requires minimum nights (e.g., 2 nights), dates within the threshold are invalid.
+* **Submission Behavior:**
+  * Clicking "Reserve" validates selected dates. In this client-side prototype, it displays a confirmation state or opens the checkout review drawer.
+
+---
+
+## 5. API / Network Behavior & Data Architecture
+
+* **Static Architecture:** The application operates as a high-performance Jamstack single-page application. All listing parameters, host bios, image catalogs, reviews, and amenities are loaded from a bundled JSON data store (`src/data/listing.json`).
+* **Data Contract Structure:**
+  ```json
+  {
+    "title": "Romantic Jacuzzi 1BHK Candolim | Mirashya UG10",
+    "propertyType": "Entire serviced apartment in Candolim, India",
+    "capacity": { "guests": 3, "bedrooms": 1, "beds": 1, "bathrooms": 1 },
+    "price": { "amount": 28499, "currency": "₹", "nights": 5 },
+    "rating": { "score": 4.95, "reviewCount": 19 },
+    "guestFavourite": true,
+    "host": {
+      "name": "Mirashya Homes",
+      "logo": "avatars/host.jpeg",
+      "reviewCount": 1463,
+      "rating": 4.68,
+      "yearsHosting": 2,
+      "responseRate": "100%",
+      "responseTime": "within an hour"
+    },
+    "photos": [
+      { "id": "hero-1", "url": "...", "caption": "Living area with jacuzzi", "category": "Living room" }
+    ],
+    "amenitiesModal": {
+      "Bathroom": ["Hair dryer", "Cleaning products", "Shampoo", "Hot water"],
+      "Bedroom & laundry": ["Washer", "Essentials", "Hangers", "Bed linen"],
+      "Entertainment": ["TV with standard cable"],
+      "Heating and cooling": ["Air conditioning"],
+      "Internet and office": ["Wifi", "Dedicated workspace"]
+    }
+  }
+  ```
+
+---
+
+## 6. Application States Matrix
+
+| Feature | Idle / Default | Active / Open | Popstate / Back | Empty / Error |
+| :--- | :--- | :--- | :--- | :--- |
+| **Hero Grid** | Displays 1 large + 4 small thumbnails with hover zoom (1.02 scale) | Hover displays dark scrim | Normal | Placeholder SVG fallback if image fails |
+| **Photo Tour** | Unmounted or hidden (`display: none`) | Overlays full viewport, locks body scroll | Closes, returns focus to Hero button | "No photos available in this category" |
+| **Lightbox** | Unmounted | Overlays PhotoTour with z-index 2000, black bg | Returns to PhotoTour view | Fallback broken image tile |
+| **Sticky Bar** | Hidden (`transform: translateY(-100%)`) | Slides down when scrolled past 550px | Hides if scrolled back to top | N/A |
+| **Calendar** | Shows pre-selected date range (5 nights) | Range highlighted in light gray with dark pill endpoints | Preserved | "Minimum stay is X nights" tooltip |
+| **Amenities** | Previews 10 items with icons | Modal dialog displays all categorized groups | Closes modal | N/A |
+
+---
+
+## 7. Accessibility (A11y) & Keyboard Navigation Contracts
+
+1. **Focus Trapping:**
+   * When `PhotoTour`, `Lightbox`, or `AmenitiesModal` is mounted, focus is trapped using keyboard hooks (`Tab` and `Shift+Tab` cycle between first and last focusable element).
+2. **Scroll Lock:**
+   * When modal overlays open, `document.body.style.overflow = 'hidden'` prevents background page scrolling.
+3. **Esc Key Listeners:**
+   * Overlay stack observes hierarchical closing: Lightbox closes first; secondary Esc closes Photo Tour; final Esc dismisses dropdowns.
+4. **ARIA Invariance:**
+   * Background container receives `inert` and `aria-hidden="true"` while full-screen modals are rendered.
+
+---
+
+## 8. Responsive Breakpoints & Viewport Adaptations
+
+| Breakpoint | Layout Adaptations |
+| :--- | :--- |
+| **Desktop (> 1128px)** | Header shows full search bar; HeroGrid displays 5-column asymmetric grid; 2-column layout (65% content / 35% sticky sidebar); full 2-month side-by-side calendar. |
+| **Tablet (744px – 1127px)** | HeroGrid collapses into a simplified grid or single featured banner; Sidebar ceases sticky float and converts into a bottom-anchored booking bar; Calendar renders 1 month. |
+| **Mobile (< 743px)** | Top Header collapses into mobile search pill; HeroGrid switches to a swipeable horizontal carousel with photo count indicator (`1/45`); bottom fixed booking bar appears (`price on left, "Reserve" on right`); StickyBar is hidden. |
+
+---
+
+## 9. Final Clone Verification Checklist
+
+| Category | Original Reference Behavior | Clone Implementation Requirement | Status |
+| :--- | :--- | :--- | :--- |
+| **Routing** | `/` shows main listing | Mount `ListingPage` with full 1120px max-width layout | Verified |
+| **Routing** | `?photoTour=1` opens photo tour | App listens to `popstate` and syncs URL query params | Verified |
+| **Routing** | `&lightbox=[id]` opens lightbox | App pushes history state on photo click | Verified |
+| **Hero Grid** | 5 photos (1 big, 4 small) with rounded corners | CSS grid with `border-radius: 12px` and overflow clip | Verified |
+| **Photo Tour** | Categorized list with sticky category nav | `CategoryNav` with horizontal scroll and anchor sync | Verified |
+| **Lightbox** | Full-screen image with counter and arrow keys | Keydown listener for `ArrowRight`/`ArrowLeft`/`Escape` | Verified |
+| **Sticky Bar** | Appears on scroll past hero | Scroll listener toggles `sticky-bar-visible` | Verified |
+| **Booking Box** | Sticky sidebar with live pricing math | Sticky position `top: 80px` with dynamic night calculation | Verified |
+| **Calendar** | Dual-month date picker | Interactive month views with start/end range selection | Verified |
+| **Amenities** | Preview shows 10 items, modal shows full list | Modal with categorized grouped amenities and scroll lock | Verified |
+| **Reviews** | Breakdown bars + 2-column cards | Rating distribution grid + reviewer avatars and text | Verified |
+| **Accessibility** | Focus trap and background `inert` on overlays | `useFocusTrap` + `useBodyScrollLock` hooks applied | Verified |
+| **Typography** | Inter / Airbnb Cereal font styling | Clean sans-serif typography stack with Airbnb palette | Verified |

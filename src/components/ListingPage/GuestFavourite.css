@@ -28,14 +28,11 @@
   flex-shrink: 0;
 }
 
-.guest-favourite-laurel-icon {
-  width: 22px;
-  height: 28px;
-  color: #222222;
-}
-
-.guest-favourite-laurel-flip {
-  transform: scaleX(-1);
+.guest-favourite-laurel-img {
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+  display: block;
 }
 
 .guest-favourite-title {
