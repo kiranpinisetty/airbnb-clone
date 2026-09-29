@@ -141,6 +141,8 @@ export default function ListingPage({ listing, onOpenPhotoTour }) {
           <div className="listing-location-sub-section">
             <ThingsToKnow
               thingsToKnow={listing.thingsToKnow}
+              houseRules={listing.houseRules}
+              safety={listing.safety}
             />
           </div>
 

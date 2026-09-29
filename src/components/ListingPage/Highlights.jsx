@@ -1,10 +1,13 @@
-import { Palmtree, Wind, Key } from 'lucide-react';
+import { Umbrella, Fan, DoorOpen } from 'lucide-react';
 import './Highlights.css';
 
 const ICON_MAP = {
-  outdoor: Palmtree,
-  cooling: Wind,
-  selfCheckIn: Key,
+  outdoor: Umbrella,
+  'Outdoor entertainment': Umbrella,
+  cooling: Fan,
+  'Designed for staying cool': Fan,
+  selfCheckIn: DoorOpen,
+  'Self check-in': DoorOpen,
 };
 
 export default function Highlights({ highlights = [] }) {
@@ -13,7 +16,8 @@ export default function Highlights({ highlights = [] }) {
   return (
     <div className="highlights-list">
       {highlights.map((item, index) => {
-        const IconComponent = ICON_MAP[item.icon] || Key;
+        const IconComponent =
+          ICON_MAP[item.icon] || ICON_MAP[item.title] || DoorOpen;
         return (
           <div key={item.title || index} className="highlight-item">
             <div className="highlight-icon-box">

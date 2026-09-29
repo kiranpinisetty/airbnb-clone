@@ -15,11 +15,10 @@ export default function WhereYoullBe({ neighbourhood, location }) {
 
   const locationText = location
     ? `${location.city}, ${location.state}, ${location.country}`
-    : 'Candolim, Goa, India';
+    : '';
 
   const neighbourhoodText =
-    neighbourhood ||
-    'Candolim is a laid-back beach village on the north Goa coast, known for its clean beaches, water sports, and vibrant shacks. The property is a short drive from Sinquerim and Calangute.';
+    location?.neighbourhoodHighlight || location?.description || neighbourhood || '';
 
   return (
     <section className="where-youll-be-section" aria-label="Location and neighbourhood">

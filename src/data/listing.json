@@ -317,21 +317,19 @@
     "country": "India",
     "lat": 15.5179,
     "lng": 73.7638,
-    "description": "Candolim is a laid-back beach village on the north Goa coast, known for its clean beaches, water sports, and vibrant shacks. The property is a short drive from Sinquerim and Calangute."
+    "description": "Candolim is a laid-back beach village on the north Goa coast, known for its clean beaches, water sports, and vibrant shacks. The property is a short drive from Sinquerim and Calangute.",
+    "neighbourhoodHighlight": "Located in the heart of Candolim, Amor de Goa offers a peaceful stay with easy access to beaches, cafés, and popular attractions."
   },
   "cancellationPolicy": "Moderate – Full refund for cancellations made 5 days before check-in.",
   "houseRules": [
-    "Check-in: 2:00 PM – 10:00 PM",
-    "Checkout: 11:00 AM",
-    "No smoking",
-    "No parties or events",
-    "Pets allowed"
+    "Check-in after 2:00 pm",
+    "Checkout before 11:00 am",
+    "3 guests maximum"
   ],
   "safety": [
-    "Exterior security cameras",
-    "Smoke alarm",
-    "Carbon monoxide alarm",
-    "Fire extinguisher"
+    "Carbon monoxide alarm not reported",
+    "Smoke alarm not reported",
+    "Exterior security cameras on property"
   ],
   "heroPhotoIds": [
     "1000",
@@ -899,17 +897,14 @@
       "Review this host's full policy for details."
     ],
     "houseRules": [
-      "Check-in: 2:00 PM – 10:00 PM",
-      "Checkout: 11:00 AM",
-      "No smoking",
-      "No parties or events",
-      "Pets allowed"
+      "Check-in after 2:00 pm",
+      "Checkout before 11:00 am",
+      "3 guests maximum"
     ],
     "safety": [
-      "Exterior security cameras",
-      "Smoke alarm",
-      "Carbon monoxide alarm",
-      "Fire extinguisher"
+      "Carbon monoxide alarm not reported",
+      "Smoke alarm not reported",
+      "Exterior security cameras on property"
     ]
   },
   "neighbourhood": "Candolim is a laid-back beach village on the north Goa coast, known for its clean beaches, water sports, and vibrant shacks. The property is a short drive from Sinquerim and Calangute.",

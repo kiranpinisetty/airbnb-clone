@@ -1,26 +1,14 @@
 import { CalendarX, KeyRound, Shield } from 'lucide-react';
 import './ThingsToKnow.css';
 
-export default function ThingsToKnow({ thingsToKnow }) {
-  const cancellationRules = thingsToKnow?.cancellation || [
-    'Free cancellation before 17 October. Cancel before check-in on 18 October for a partial refund.',
-    "Review this host's full policy for details.",
-  ];
-
-  const houseRules = thingsToKnow?.houseRules || [
-    'Check-in: 2:00 PM – 10:00 PM',
-    'Checkout: 11:00 AM',
-    'No smoking',
-    'No parties or events',
-    'Pets allowed',
-  ];
-
-  const safetyRules = thingsToKnow?.safety || [
-    'Exterior security cameras on property',
-    'Carbon monoxide alarm',
-    'Smoke alarm',
-    'Fire extinguisher',
-  ];
+export default function ThingsToKnow({
+  thingsToKnow,
+  houseRules: rootHouseRules,
+  safety: rootSafety,
+}) {
+  const cancellationRules = thingsToKnow?.cancellation || [];
+  const houseRules = thingsToKnow?.houseRules || rootHouseRules || [];
+  const safetyRules = thingsToKnow?.safety || rootSafety || [];
 
   return (
     <section className="things-to-know-section" aria-label="Important information about the listing">
