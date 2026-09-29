@@ -69,7 +69,7 @@ export default function ListingPage({ listing, onOpenPhotoTour }) {
               </div>
             )}
 
-            <div className="listing-section">
+            <div className="listing-section listing-section-host">
               <HostRow host={listing.host} />
             </div>
 

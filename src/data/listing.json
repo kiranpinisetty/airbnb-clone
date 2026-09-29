@@ -340,6 +340,30 @@
   ],
   "photos": [
     {
+      "id": "1014",
+      "category": "Living room 1",
+      "url": "/photos/79addceb-8c2d-419b-80ff-e29af426a94c.jpeg",
+      "alt": "Indoor living room with TV on sideboard, open-plan kitchen, and curtained window"
+    },
+    {
+      "id": "1015",
+      "category": "Living room 1",
+      "url": "/photos/a45feaa2-b607-4092-83ac-5fd4b2894959.jpeg",
+      "alt": "Indoor living room from same angle, TV on wooden sideboard, kitchen behind"
+    },
+    {
+      "id": "1016",
+      "category": "Living room 1",
+      "url": "/photos/f1da1c3d-0d10-481e-9b63-c71f9073f30b.jpeg",
+      "alt": "Living room from opposite end — TV left, orange leather sofa right, kitchen visible"
+    },
+    {
+      "id": "1017",
+      "category": "Living room 1",
+      "url": "/photos/a9831aeb-f441-44f5-a38f-4cf54e3f0fcf.jpeg",
+      "alt": "Wide-angle indoor living room with orange leather sofa, dining area, and front door"
+    },
+    {
       "id": "1000",
       "category": "Living room 2",
       "url": "/photos/2367476f-11c4-4a14-a7c6-267be62c1d59.jpeg",
@@ -422,30 +446,6 @@
       "category": "Living room 2",
       "url": "/photos/9642a60d-e9de-4e1a-89c2-9ebd230f4a74.jpeg",
       "alt": "Jacuzzi steps and washing machine alcove with Mona Lisa painting above"
-    },
-    {
-      "id": "1014",
-      "category": "Living room 1",
-      "url": "/photos/79addceb-8c2d-419b-80ff-e29af426a94c.jpeg",
-      "alt": "Indoor living room with TV on sideboard, open-plan kitchen, and curtained window"
-    },
-    {
-      "id": "1015",
-      "category": "Living room 1",
-      "url": "/photos/a45feaa2-b607-4092-83ac-5fd4b2894959.jpeg",
-      "alt": "Indoor living room from same angle, TV on wooden sideboard, kitchen behind"
-    },
-    {
-      "id": "1016",
-      "category": "Living room 1",
-      "url": "/photos/f1da1c3d-0d10-481e-9b63-c71f9073f30b.jpeg",
-      "alt": "Living room from opposite end — TV left, orange leather sofa right, kitchen visible"
-    },
-    {
-      "id": "1017",
-      "category": "Living room 1",
-      "url": "/photos/a9831aeb-f441-44f5-a38f-4cf54e3f0fcf.jpeg",
-      "alt": "Wide-angle indoor living room with orange leather sofa, dining area, and front door"
     },
     {
       "id": "1018",
@@ -594,14 +594,6 @@
   ],
   "categories": [
     {
-      "name": "Living room 2",
-      "tags": [
-        "Ceiling fan",
-        "Hot tub"
-      ],
-      "thumbnailPhotoId": "1000"
-    },
-    {
       "name": "Living room 1",
       "tags": [
         "Sofa",
@@ -610,6 +602,14 @@
         "TV"
       ],
       "thumbnailPhotoId": "1014"
+    },
+    {
+      "name": "Living room 2",
+      "tags": [
+        "Ceiling fan",
+        "Hot tub"
+      ],
+      "thumbnailPhotoId": "1000"
     },
     {
       "name": "Full kitchen",

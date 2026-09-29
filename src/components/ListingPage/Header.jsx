@@ -1,3 +1,4 @@
+import logoSvg from '../../assets/logo.svg';
 import searchbarHouseImg from '../../assets/searchbar-house.png';
 import './Header.css';
 
@@ -5,18 +6,17 @@ export default function Header() {
   return (
     <header className="header" role="banner">
       <div className="header-inner">
-        {/* Left: Airbnb-style wordmark */}
+        {/* Left: Airbnb logo */}
         <div className="header-left">
           <a href="/" className="header-logo-link" aria-label="Airbnb homepage">
-            <svg
+            <img
+              src={logoSvg}
+              alt=""
               className="header-logo-icon"
-              viewBox="0 0 32 32"
-              fill="currentColor"
+              width="32"
+              height="32"
               aria-hidden="true"
-              focusable="false"
-            >
-              <path d="M16 1c2.008 0 3.463.963 4.751 3.269l.533 1.025c1.954 3.83 6.115 12.54 7.1 14.836l.145.353c.667 1.591.91 2.479.96 3.397.085 1.62-.487 3.21-1.611 4.359-1.127 1.15-2.67 1.761-4.349 1.761-1.748 0-3.352-.672-4.639-1.928l-.89-.92-.89.92C15.673 29.328 14.07 30 12.32 30c-1.678 0-3.221-.61-4.348-1.76-1.124-1.15-1.696-2.74-1.611-4.36.05-.918.293-1.806.96-3.397l.145-.353c.985-2.296 5.146-11.006 7.1-14.836l.533-1.025C16.39 1.963 17.844 1 19.852 1H16zm0 2c-1.154 0-2.023.518-3.003 2.274l-.46.883c-1.932 3.785-6.068 12.44-7.037 14.697-.565 1.348-.77 2.062-.809 2.766-.067 1.25.373 2.457 1.218 3.322.844.862 2.007 1.319 3.271 1.319 1.332 0 2.56-.516 3.565-1.498l1.49-1.455.765-.747.765.747 1.49 1.455c1.005.982 2.233 1.498 3.565 1.498 1.264 0 2.427-.457 3.271-1.319.845-.865 1.285-2.072 1.218-3.322-.04-.704-.244-1.418-.81-2.766-.968-2.257-5.104-10.912-7.036-14.697l-.46-.883C17.876 3.518 17.006 3 15.852 3H16zm0 11.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
-            </svg>
+            />
             <span className="header-logo-text">airbnb</span>
           </a>
         </div>

@@ -124,21 +124,21 @@
 .sticky-bar-reserve-btn {
   width: var(--sticky-bar-reserve-width);
   height: var(--sticky-bar-reserve-height);
-  background-color: #e61e4d;
+  background: var(--reserve, #e61e4d);
   color: #ffffff;
   border: none;
   border-radius: var(--sticky-bar-reserve-radius);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: opacity 0.15s ease, background 0.15s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .sticky-bar-reserve-btn:hover {
-  background-color: #d70466;
+  background: var(--reserve-hover, #d70466);
 }
 
 .sticky-bar-reserve-btn:focus-visible {

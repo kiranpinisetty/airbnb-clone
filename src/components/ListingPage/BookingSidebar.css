@@ -317,13 +317,13 @@
   width: 100%;
   height: var(--sidebar-reserve-height);
   border-radius: var(--sidebar-reserve-radius);
-  background: linear-gradient(to right, #E61E4D, #D70466);
+  background: var(--reserve, linear-gradient(to right, #E61E4D, #D70466));
   border: none;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease, background 0.15s ease;
   font-family: inherit;
   display: inline-flex;
   align-items: center;
@@ -331,7 +331,7 @@
 }
 
 .booking-reserve-cta:hover {
-  opacity: 0.95;
+  background: var(--reserve-hover, linear-gradient(to right, #d81b5f 0%, #c31a5b 50%, #bd0463 100%));
 }
 
 .booking-reserve-cta:focus-visible {

@@ -94,7 +94,14 @@ export default function PhotoTour({
 
   // Scroll to initial photo or category on open
   useEffect(() => {
-    if (!isOpen || !initialPhotoId) return;
+    if (!isOpen) return;
+
+    if (!initialPhotoId) {
+      if (overlayRef.current) {
+        overlayRef.current.scrollTop = 0;
+      }
+      return;
+    }
 
     const targetPhoto = photosById.get(String(initialPhotoId));
     if (!targetPhoto) return;

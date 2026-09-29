@@ -4,6 +4,8 @@
   --listing-sidebar-width: 370px;
   --listing-col-gap: 100px;
   --listing-section-padding-y: 32px;
+  --summary-heading-size: 16px;
+  --summary-heading-weight: 600;
 }
 
 .listing-page {
@@ -38,6 +40,11 @@
 
 .listing-section:first-child {
   padding-top: 0;
+}
+
+.listing-section-host,
+.listing-section:has(.host-row) {
+  padding: 0;
 }
 
 .listing-sidebar-wrapper {

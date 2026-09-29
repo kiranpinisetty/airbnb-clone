@@ -8,7 +8,7 @@
   --host-col-gap: 48px;
   --host-avatar-size: 88px;
   --host-badge-size: 28px;
-  --host-name-size: 32px;
+  --meet-host-name-size: 32px;
   --host-stat-num-size: 22px;
   --host-cohost-avatar-size: 34px;
   --host-msg-btn-width: 144px;
@@ -89,7 +89,7 @@
 }
 
 .meet-host-name {
-  font-size: var(--host-name-size);
+  font-size: var(--meet-host-name-size);
   font-weight: 600;
   line-height: 1.15;
   color: #222222;

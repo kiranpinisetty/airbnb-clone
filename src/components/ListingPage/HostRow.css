@@ -1,11 +1,14 @@
 :root {
-  --host-avatar-size: 46px;
+  --host-avatar-size: 40px;
+  --host-tenure-size: 14px;
+  --host-tenure-color: #717171;
 }
 
 .host-row {
   display: flex;
   align-items: center;
   gap: 16px;
+  padding: 26px 0;
 }
 
 .host-avatar {
@@ -25,15 +28,15 @@
 
 .host-name {
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--summary-heading-size, 16px);
+  font-weight: var(--summary-heading-weight, 600);
   color: #222222;
   letter-spacing: -0.01em;
   line-height: 1.25;
 }
 
 .host-tenure {
-  font-size: 14px;
-  color: #6a6a6a;
+  font-size: var(--host-tenure-size);
+  color: var(--host-tenure-color);
   line-height: 1.25;
 }

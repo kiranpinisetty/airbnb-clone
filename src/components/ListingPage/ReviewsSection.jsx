@@ -65,9 +65,7 @@ export default function ReviewsSection({ reviews, rating }) {
 
         <h2 className="reviews-hero-title">Guest favourite</h2>
         <p className="reviews-hero-desc">
-          This home is a guest favourite based on ratings, reviews and
-          <br />
-          reliability
+          This home is a guest favourite based on ratings, reviews and reliability
         </p>
 
         <button

@@ -100,7 +100,7 @@ export default function HeroGrid({ photos = [], heroPhotoIds = [], onOpenPhotoTo
         <button
           type="button"
           className="hero-grid-show-all-btn"
-          onClick={() => handlePhotoClick(photos[0] ? photos[0].id : null)}
+          onClick={() => handlePhotoClick(null)}
           aria-label={`Show all ${photos.length} photos`}
         >
           <svg
